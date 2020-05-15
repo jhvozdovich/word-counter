@@ -69,6 +69,7 @@ namespace Program
 
     static string ValidateWord(string word)
     {
+      Modify newMod = new Modify (word);
       tryagain:
 
       while (word == "")
@@ -85,8 +86,6 @@ namespace Program
         goto tryagain;
       }
 
-      word = RemoveAllNonAlphaCharacters(word);
-
       if(ContainSpecialCharacters(word))
       {
         TypeLine("Your word contains special characters. Are you sure you would like to proceed? Y/N");
@@ -94,17 +93,32 @@ namespace Program
         string continueCharacterQuestion = Console.ReadLine().ToLower();
         if (continueCharacterQuestion == "y" || continueCharacterQuestion == "yes")
         {
-          TypeLine("Would you like to remove punctuation?");
-          tryTrimAgain:
-          string continueTrimQuestion = Console.ReadLine().ToLower();
-          if (continueTrimQuestion == "y" || continueTrimQuestion == "yes")
+          TypeLine("Would you like to remove all non alphabetical characters?");
+          tryRemoveAgain:
+          string continueRemoveQuestion = Console.ReadLine().ToLower();
+          if (continueRemoveQuestion == "y" || continueRemoveQuestion == "yes")
           {
-            word = TrimSpecialCharacters(word);
+            word = newMod.RemoveAllNonAlphaCharacters();
           }
-          else if (continueTrimQuestion != "n" && continueTrimQuestion != "no")
+          else if(continueRemoveQuestion != "n" && continueRemoveQuestion != "no")
           {
-            TypeLine("Sorry I didn't catch that. Would you like to remove the punctuation at the beginning and end of your word? Y/N");
-            goto tryTrimAgain;
+            TypeLine("Sorry I didn't catch that. Would you like to remove all non alphabetical characters from your word? Y/N");
+            goto tryRemoveAgain;
+          }
+          else
+          {
+            TypeLine("Would you like to trim punctuation from the start and end of your word?");
+            tryTrimAgain:
+            string continueTrimQuestion = Console.ReadLine().ToLower();
+            if (continueTrimQuestion == "y" || continueTrimQuestion == "yes")
+            {
+              word = TrimSpecialCharacters(word);
+            }
+            else if (continueTrimQuestion != "n" && continueTrimQuestion != "no")
+            {
+              TypeLine("Sorry I didn't catch that. Would you like to remove the punctuation at the beginning and end of your word? Y/N");
+              goto tryTrimAgain;
+            }
           }
         }
         else if (continueCharacterQuestion == "n" || continueCharacterQuestion == "no")
@@ -147,20 +161,6 @@ namespace Program
         word = word.Substring(1);
       }
       return word;
-    }
-
-    public static string RemoveAllNonAlphaCharacters(string word)
-    {
-      List<char> removed = new List<char> {};
-      for (int i = 0; i < word.Length; i++)
-      {
-        if(word[i] >= 'A' && word[i] <= 'z')
-        {
-          removed.Add(word[i]);
-        }
-      }
-      string removedString = string.Join("", removed.ToArray());
-      return removedString;
     }
   }
 }
