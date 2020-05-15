@@ -55,6 +55,8 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **Does not accept empty inputs** | User Input:”Word: ” | Output: “Please enter a word” | Selected to account for invalid blank entries |
 | **Does not accept entries with spaces** | User Input:”Word: cat dog” | Output: “Please enter a single word without spaces” | Selected to account for invalid entries or multiple words |
 | **Displays warning for words ending with special characters** | User Input:”Word: cat!” | Output: “did you mean 'cat'?” | Selected to account for possible user entry punctuation mistakes |
+| **Gives option for user to remove all alphabetical characters from word input** | User Input:”Word: cat5s” | Output: “would you like to remove non alphabetical characters?” | Selected to account for possible user entry mistakes, but not automatically correct if they are intentional |
+| **Gives option for user to remove punctuation at the beginning and ending of a word** | User Input:”Word: cat!” | Output: "would you like to remove punctuation” | Selected to account for possible user entry punctuation mistakes, but not automatically correct if they are intentional |
 
 #### License
 
