@@ -13,5 +13,12 @@ namespace WordCounter.TestTools
       string result = newMod.RemoveAllNonAlphaCharacters();
       Assert.AreEqual("cat", result);
     }
+    [TestMethod]
+    public void Modify_TrimSpecialCharacters_cat()
+    {
+      Modify newMod = new Modify("cat!");
+      string result = newMod.TrimSpecialCharacters();
+      Assert.AreEqual("cat", result);
+    }
   }
 }
