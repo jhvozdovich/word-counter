@@ -20,5 +20,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
+    [TestMethod]
+    public void CountRepeats_SingleCharacterNonMatc_0()
+    {
+      Entry newEntry = new Entry("a", "b");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
   }
 }
