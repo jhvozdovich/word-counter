@@ -18,9 +18,15 @@ namespace WordCounter.Models
       foreach(string sentenceWord in sentenceArray)
       {
         string shortenedWord = "";
-        if(sentenceWord.EndsWith("!") || sentenceWord.EndsWith(".") || sentenceWord.EndsWith("?") || sentenceWord.EndsWith("-")  || sentenceWord.EndsWith(",") || sentenceWord.EndsWith("/") || sentenceWord.EndsWith("%") || sentenceWord.EndsWith('"') || sentenceWord.EndsWith("'") || sentenceWord.EndsWith(")") || sentenceWord.EndsWith("(") || sentenceWord.EndsWith(":") || sentenceWord.EndsWith(";") )
+        // Refactor with a-z regex, not permitted with assignment
+        if (sentenceWord.EndsWith("!") || sentenceWord.EndsWith(".") || sentenceWord.EndsWith("?") || sentenceWord.EndsWith("-")  || sentenceWord.EndsWith(",") || sentenceWord.EndsWith("/") || sentenceWord.EndsWith("%") || sentenceWord.EndsWith('"') || sentenceWord.EndsWith("'") || sentenceWord.EndsWith(")") || sentenceWord.EndsWith("(") || sentenceWord.EndsWith(":") || sentenceWord.EndsWith(";") || sentenceWord.EndsWith("{") || sentenceWord.EndsWith("}") || sentenceWord.EndsWith("[") || sentenceWord.EndsWith("]") || sentenceWord.EndsWith("<") || sentenceWord.EndsWith(">"))
         {
           shortenedWord = sentenceWord.Remove(sentenceWord.Length - 1);
+          Console.WriteLine(shortenedWord);
+        }
+        if (sentenceWord.StartsWith("!") || sentenceWord.StartsWith(".") || sentenceWord.StartsWith("?") || sentenceWord.StartsWith("-")  || sentenceWord.StartsWith(",") || sentenceWord.StartsWith("/") || sentenceWord.StartsWith("%") || sentenceWord.StartsWith('"') || sentenceWord.StartsWith("'") || sentenceWord.StartsWith(")") || sentenceWord.StartsWith("(") || sentenceWord.StartsWith(":") || sentenceWord.StartsWith(";") || sentenceWord.StartsWith("{") || sentenceWord.StartsWith("}") || sentenceWord.StartsWith("[") || sentenceWord.StartsWith("]") || sentenceWord.StartsWith("<") || sentenceWord.StartsWith(">"))
+        {
+          shortenedWord = sentenceWord.Substring(1);
           Console.WriteLine(shortenedWord);
         }
         if(Word == sentenceWord || Word == shortenedWord)
