@@ -69,7 +69,7 @@ namespace Program
 
     static string ValidateWord(string word)
     {
-      Modify newMod = new Modify (word);
+      Modify modifyWord = new Modify (word);
       tryagain:
 
       while (word == "")
@@ -86,7 +86,7 @@ namespace Program
         goto tryagain;
       }
 
-      if(ContainSpecialCharacters(word))
+      if(modifyWord.ContainSpecialCharacters())
       {
         TypeLine("Your word contains special characters. Are you sure you would like to proceed? Y/N");
         tryCharacterAgain:
@@ -98,7 +98,7 @@ namespace Program
           string continueRemoveQuestion = Console.ReadLine().ToLower();
           if (continueRemoveQuestion == "y" || continueRemoveQuestion == "yes")
           {
-            word = newMod.RemoveAllNonAlphaCharacters();
+            word = modifyWord.RemoveAllNonAlphaCharacters();
           }
           else if(continueRemoveQuestion != "n" && continueRemoveQuestion != "no")
           {
@@ -112,7 +112,7 @@ namespace Program
             string continueTrimQuestion = Console.ReadLine().ToLower();
             if (continueTrimQuestion == "y" || continueTrimQuestion == "yes")
             {
-              word = TrimSpecialCharacters(word);
+              word = modifyWord.TrimSpecialCharacters();
             }
             else if (continueTrimQuestion != "n" && continueTrimQuestion != "no")
             {
@@ -132,33 +132,6 @@ namespace Program
           TypeLine("Sorry, I didn't catch that! Are you sure you would like to proceed with special characters? Y/N");
           goto tryCharacterAgain;
         }
-      }
-      return word;
-    }
-
-    public static bool ContainSpecialCharacters(string word)
-    {
-      char[] letterArray = word.ToCharArray();
-      bool specialCharacterStatus = false;
-      for (int i = 0; i < letterArray.Length; i++)
-      {
-        if(Char.IsLetter(letterArray[i]))
-        {
-          specialCharacterStatus = true;
-        }
-      }
-      return specialCharacterStatus;
-    }
-    public static string TrimSpecialCharacters(string word)
-    {
-      // Would refactor with a-z regex, not permitted
-      while (word.EndsWith("!") || word.EndsWith(".") || word.EndsWith("?") || word.EndsWith("-")  || word.EndsWith(",") || word.EndsWith("/") || word.EndsWith("%") || word.EndsWith('"') || word.EndsWith("'") || word.EndsWith(")") || word.EndsWith("(") || word.EndsWith(":") || word.EndsWith(";") || word.EndsWith("{") || word.EndsWith("}") || word.EndsWith("[") || word.EndsWith("]") || word.EndsWith("<") || word.EndsWith(">") || word.EndsWith("@") || word.EndsWith("#") || word.EndsWith("$") || word.EndsWith("^") || word.EndsWith("&") || word.EndsWith("*"))
-      {
-        word = word.Remove(word.Length - 1);
-      }
-      while (word.StartsWith("!") || word.StartsWith(".") || word.StartsWith("?") || word.StartsWith("-")  || word.StartsWith(",") || word.StartsWith("/") || word.StartsWith("%") || word.StartsWith('"') || word.StartsWith("'") || word.StartsWith(")") || word.StartsWith("(") || word.StartsWith(":") || word.StartsWith(";") || word.StartsWith("{") || word.StartsWith("}") || word.StartsWith("[") || word.StartsWith("]") || word.StartsWith("<") || word.StartsWith(">") || word.StartsWith("@") || word.StartsWith("#") || word.StartsWith("$") || word.StartsWith("^") || word.StartsWith("&") || word.StartsWith("*"))
-      {
-        word = word.Substring(1);
       }
       return word;
     }
