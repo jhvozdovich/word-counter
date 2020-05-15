@@ -18,7 +18,7 @@ namespace WordCounter.Models
       foreach(string sentenceWord in sentenceArray)
       {
         string shortenedWord = "";
-        if(sentenceWord.EndsWith("!"))
+        if(sentenceWord.EndsWith("!") || sentenceWord.EndsWith(".") || sentenceWord.EndsWith("?") || sentenceWord.EndsWith("-")  || sentenceWord.EndsWith(",") || sentenceWord.EndsWith("/") || sentenceWord.EndsWith("%") || sentenceWord.EndsWith('"') || sentenceWord.EndsWith("'") || sentenceWord.EndsWith(")") || sentenceWord.EndsWith("(") || sentenceWord.EndsWith(":") || sentenceWord.EndsWith(";") )
         {
           shortenedWord = sentenceWord.Remove(sentenceWord.Length - 1);
           Console.WriteLine(shortenedWord);
