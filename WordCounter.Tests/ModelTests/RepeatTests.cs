@@ -27,5 +27,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(0, count);
     }
+    [TestMethod]
+    public void CountRepeats_SingleWordMatch_1()
+    {
+      Entry newEntry = new Entry("cat", "cat");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(0, count);
+    }
   }
 }
