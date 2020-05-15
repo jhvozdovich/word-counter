@@ -105,5 +105,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
+    [TestMethod]
+    public void CountRepeats_IgnorePosessives_0()
+    {
+      Entry newEntry = new Entry("cat", "This is my cat's toy mouse.");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
   }
 }
