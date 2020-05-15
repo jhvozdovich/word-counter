@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using WordCounter.Models;
 
 namespace Program
@@ -84,6 +85,8 @@ namespace Program
         goto tryagain;
       }
 
+      word = RemoveAllNonAlphaCharacters(word);
+
       if(ContainSpecialCharacters(word))
       {
         TypeLine("Your word contains special characters. Are you sure you would like to proceed? Y/N");
@@ -144,6 +147,20 @@ namespace Program
         word = word.Substring(1);
       }
       return word;
+    }
+
+    public static string RemoveAllNonAlphaCharacters(string word)
+    {
+      List<char> removed = new List<char> {};
+      for (int i = 0; i < word.Length; i++)
+      {
+        if(word[i] >= 'A' && word[i] <= 'z')
+        {
+          removed.Add(word[i]);
+        }
+      }
+      string removedString = string.Join("", removed.ToArray());
+      return removedString;
     }
   }
 }
