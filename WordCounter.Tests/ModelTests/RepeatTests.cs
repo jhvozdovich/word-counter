@@ -39,7 +39,7 @@ namespace WordCounter.TestTools
     {
       Entry newEntry = new Entry("cat", "Cat");
       int count = newEntry.CountRepeats();
-      Assert.AreEqual(0, count);
+      Assert.AreEqual(1, count);
     }
   }
 }
