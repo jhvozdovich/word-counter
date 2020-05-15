@@ -49,13 +49,9 @@ namespace Program
       TypeLine("Please enter a word to count: ");
       string userWord = Console.ReadLine();
 
-      while (userWord == "")
-      {
-        TypeLine("Don't be shy! Please enter your word: ");
-        userWord = Console.ReadLine();
-      }
+      userWord = ValidateWord(userWord);
 
-      TypeLine("Please enter your sentence to look through: ");
+      TypeLine("Now enter your sentence to look through: ");
       string userSentence = Console.ReadLine();
 
       while (userSentence == "")
@@ -68,6 +64,27 @@ namespace Program
       int count = userEntry.CountRepeats();
       TypeLineSlow("Calculating...");
       TypeLine("There are " + count + " instances of the word " + userWord + " in your sentence.");
+    }
+
+    static string ValidateWord(string word)
+    {
+      tryagain:
+
+      while (word == "")
+      {
+        TypeLine("Don't be shy! Please enter your word: ");
+        word = Console.ReadLine();
+        goto tryagain;
+      }
+
+      while(word.Contains(" "))
+      {
+        TypeLine("Please enter a valid word with no spaces: ");
+        word = Console.ReadLine();
+        goto tryagain;
+      }
+
+      return word;
     }
   }
 }
