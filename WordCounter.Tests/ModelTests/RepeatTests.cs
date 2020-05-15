@@ -13,5 +13,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
+    [TestMethod]
+    public void CountRepeats_SingleCharacterCapitalization_1()
+    {
+      Entry newEntry = new Entry("a", "A");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
   }
 }
