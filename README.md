@@ -52,7 +52,9 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **Count words that are adjacent to multiple characters of punctuation** | User Input:”Word: cat, Sentence: The question is: "Does everybody want to be a cat?" ” | Output: “1” | Selected to ensure the code is able to separate multiple punctuation characters as a word separator |
 | **Does not count words that are adjacent to punctuation for possessives** | User Input:”Word: cat, Sentence: This is my cat's toy mouse.” | Output: “0” | Selected to ensure the code is able recognize possessive words as a different word |
 | **Count words that are adjacent to punctuation for quotation marks** | User Input:”Word: cat, Sentence: The words to the song are: 'Everybody wants to be a cat'” | Output: “1” | Selected to ensure the code is able recognize non-possessive quotes as a word separator |
-| **Does not accept empty inputs** | User Input:”Word: , Sentence: cat'” | Output: “Please enter a word” | Selected to account for invalid blank entries |
+| **Does not accept empty inputs** | User Input:”Word: ” | Output: “Please enter a word” | Selected to account for invalid blank entries |
+| **Does not accept entries with spaces** | User Input:”Word: cat dog” | Output: “Please enter a single word without spaces” | Selected to account for invalid entries or multiple words |
+| **Displays warning for words ending with special characters** | User Input:”Word: cat!” | Output: “did you mean 'cat'?” | Selected to account for invalid entries or multiple words |
 
 #### License
 
