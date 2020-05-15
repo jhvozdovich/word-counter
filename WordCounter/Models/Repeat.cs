@@ -6,8 +6,8 @@ namespace WordCounter.Models
     private string  Sentence { get; set; }
     public Entry (string word, string sentence)
     {
-      Word = word;
-      Sentence = sentence;
+      Word = word.ToLower();
+      Sentence = sentence.ToLower();
     }
     public int CountRepeats()
     {
