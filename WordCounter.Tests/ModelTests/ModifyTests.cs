@@ -20,5 +20,11 @@ namespace WordCounter.TestTools
       string result = newMod.TrimSpecialCharacters();
       Assert.AreEqual("cat", result);
     }
+    public void Modify_ContainSpecialCharacters_true()
+    {
+      Modify newMod = new Modify("cat!");
+      bool result = newMod.ContainSpecialCharacters();
+      Assert.AreEqual(true, result);
+    }
   }
 }
