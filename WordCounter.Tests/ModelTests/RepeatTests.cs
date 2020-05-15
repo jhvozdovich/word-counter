@@ -49,18 +49,26 @@ namespace WordCounter.TestTools
       Assert.AreEqual(0, count);
     }
     [TestMethod]
-    public void CountRepeats_MultipleWordMatch_2()
+    public void CountRepeats_TwoWordMatch_2()
     {
       Entry newEntry = new Entry("cat", "cat cat");
       int count = newEntry.CountRepeats();
       Assert.AreEqual(2, count);
     }
     [TestMethod]
-    public void CountRepeats_MultipleWordExcludeNonMatch_1()
+    public void CountRepeats_TwoWordExcludeNonMatch_1()
     {
       Entry newEntry = new Entry("cat", "cat bat");
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
+    }
+    [TestMethod]
+    public void CountRepeats_SentenceExcludeNonMatch_2()
+    {
+      Entry newEntry = new Entry("cat", "This cat named Zora is my favorite cat in the world!");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(0, count);
+
     }
   }
 }
