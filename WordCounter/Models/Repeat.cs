@@ -15,21 +15,20 @@ namespace WordCounter.Models
     {
       int count = 0;
       string[] sentenceArray = Sentence.Split(" ");
-      foreach(string sentenceWord in sentenceArray)
+      for(int i = 0; i < sentenceArray.Length; i++)
       {
-        string shortenedWord = "";
-        // Refactor with a-z regex, not permitted with assignment
-        if (sentenceWord.EndsWith("!") || sentenceWord.EndsWith(".") || sentenceWord.EndsWith("?") || sentenceWord.EndsWith("-")  || sentenceWord.EndsWith(",") || sentenceWord.EndsWith("/") || sentenceWord.EndsWith("%") || sentenceWord.EndsWith('"') || sentenceWord.EndsWith("'") || sentenceWord.EndsWith(")") || sentenceWord.EndsWith("(") || sentenceWord.EndsWith(":") || sentenceWord.EndsWith(";") || sentenceWord.EndsWith("{") || sentenceWord.EndsWith("}") || sentenceWord.EndsWith("[") || sentenceWord.EndsWith("]") || sentenceWord.EndsWith("<") || sentenceWord.EndsWith(">"))
+        // Would refactor with a-z regex, not permitted
+        if (sentenceArray[i].EndsWith("!") || sentenceArray[i].EndsWith(".") || sentenceArray[i].EndsWith("?") || sentenceArray[i].EndsWith("-")  || sentenceArray[i].EndsWith(",") || sentenceArray[i].EndsWith("/") || sentenceArray[i].EndsWith("%") || sentenceArray[i].EndsWith('"') || sentenceArray[i].EndsWith("'") || sentenceArray[i].EndsWith(")") || sentenceArray[i].EndsWith("(") || sentenceArray[i].EndsWith(":") || sentenceArray[i].EndsWith(";") || sentenceArray[i].EndsWith("{") || sentenceArray[i].EndsWith("}") || sentenceArray[i].EndsWith("[") || sentenceArray[i].EndsWith("]") || sentenceArray[i].EndsWith("<") || sentenceArray[i].EndsWith(">"))
         {
-          shortenedWord = sentenceWord.Remove(sentenceWord.Length - 1);
-          Console.WriteLine(shortenedWord);
+          sentenceArray[i] = sentenceArray[i].Remove(sentenceArray[i].Length - 1);
+          Console.WriteLine(sentenceArray[i]);
         }
-        if (sentenceWord.StartsWith("!") || sentenceWord.StartsWith(".") || sentenceWord.StartsWith("?") || sentenceWord.StartsWith("-")  || sentenceWord.StartsWith(",") || sentenceWord.StartsWith("/") || sentenceWord.StartsWith("%") || sentenceWord.StartsWith('"') || sentenceWord.StartsWith("'") || sentenceWord.StartsWith(")") || sentenceWord.StartsWith("(") || sentenceWord.StartsWith(":") || sentenceWord.StartsWith(";") || sentenceWord.StartsWith("{") || sentenceWord.StartsWith("}") || sentenceWord.StartsWith("[") || sentenceWord.StartsWith("]") || sentenceWord.StartsWith("<") || sentenceWord.StartsWith(">"))
+         if (sentenceArray[i].StartsWith("!") || sentenceArray[i].StartsWith(".") || sentenceArray[i].StartsWith("?") || sentenceArray[i].StartsWith("-")  || sentenceArray[i].StartsWith(",") || sentenceArray[i].StartsWith("/") || sentenceArray[i].StartsWith("%") || sentenceArray[i].StartsWith('"') || sentenceArray[i].StartsWith("'") || sentenceArray[i].StartsWith(")") || sentenceArray[i].StartsWith("(") || sentenceArray[i].StartsWith(":") || sentenceArray[i].StartsWith(";") || sentenceArray[i].StartsWith("{") || sentenceArray[i].StartsWith("}") || sentenceArray[i].StartsWith("[") || sentenceArray[i].StartsWith("]") || sentenceArray[i].StartsWith("<") || sentenceArray[i].StartsWith(">"))
         {
-          shortenedWord = sentenceWord.Substring(1);
-          Console.WriteLine(shortenedWord);
+          sentenceArray[i] = sentenceArray[i].Substring(1);
+          Console.WriteLine(sentenceArray[i]);
         }
-        if(Word == sentenceWord || Word == shortenedWord)
+        if(Word == sentenceArray[i] || Word == sentenceArray[i])
         {
           count += 1;
         }
