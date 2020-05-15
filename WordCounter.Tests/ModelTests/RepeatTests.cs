@@ -95,6 +95,14 @@ namespace WordCounter.TestTools
     {
       Entry newEntry = new Entry("cat", "What is a 'cat'");
       int count = newEntry.CountRepeats();
+      Assert.
+      AreEqual(1, count);
+    }
+    [TestMethod]
+    public void CountRepeats_SentenceMultiplePrecedingAndFollowingPunctuation_1()
+    {
+      Entry newEntry = new Entry("cat", "What is a 'cat?'");
+      int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
   }
