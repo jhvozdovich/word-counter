@@ -110,7 +110,7 @@ namespace WordCounter.TestTools
     {
       Entry newEntry = new Entry("cat", "This is my cat's toy mouse.");
       int count = newEntry.CountRepeats();
-      Assert.AreEqual(1, count);
+      Assert.AreEqual(0, count);
     }
   }
 }
