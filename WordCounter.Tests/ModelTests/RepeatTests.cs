@@ -67,7 +67,7 @@ namespace WordCounter.TestTools
     {
       Entry newEntry = new Entry("cat", "This cat named Zora is my favorite cat in the world!");
       int count = newEntry.CountRepeats();
-      Assert.AreEqual(0, count);
+      Assert.AreEqual(2, count);
 
     }
   }
