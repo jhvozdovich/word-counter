@@ -45,7 +45,7 @@ namespace WordCounter.Models
       bool specialCharacterStatus = false;
       for (int i = 0; i < letterArray.Length; i++)
       {
-        if(Char.IsLetter(letterArray[i]))
+        if(!Char.IsLetter(letterArray[i]))
         {
           specialCharacterStatus = true;
         }
