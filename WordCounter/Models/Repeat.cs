@@ -1,3 +1,5 @@
+using System;
+
 namespace WordCounter.Models
 {
   public class Entry
@@ -15,7 +17,13 @@ namespace WordCounter.Models
       string[] sentenceArray = Sentence.Split(" ");
       foreach(string sentenceWord in sentenceArray)
       {
-        if(Word == sentenceWord)
+        string shortenedWord = "";
+        if(sentenceWord.EndsWith("!"))
+        {
+          shortenedWord = sentenceWord.Remove(sentenceWord.Length - 1);
+          Console.WriteLine(shortenedWord);
+        }
+        if(Word == sentenceWord || Word == shortenedWord)
         {
           count += 1;
         }
