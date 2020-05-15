@@ -84,6 +84,53 @@ namespace Program
         goto tryagain;
       }
 
+      
+      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">"))
+      {
+        TypeLine("Your word contains special characters. Are you sure you would like to proceed? Y/N");
+        tryCharacterAgain:
+        string continueCharacterQuestion = Console.ReadLine().ToLower();
+        if (continueCharacterQuestion == "y" || continueCharacterQuestion == "yes")
+        {
+          TypeLine("Would you like to remove the punctuation?");
+          tryTrimAgain:
+          string continueTrimQuestion = Console.ReadLine().ToLower();
+          if (continueTrimQuestion == "y" || continueTrimQuestion == "yes")
+          {
+            word = TrimSpecialCharacters(word);
+          }
+          else if (continueTrimQuestion != "n" && continueTrimQuestion != "no")
+          {
+            TypeLine("Sorry I didn't catch that. Would you like to remove the punctuation at the beginning and end of your word? Y/N");
+            goto tryTrimAgain;
+          }
+        }
+        else if (continueCharacterQuestion == "n" || continueCharacterQuestion == "no")
+        {
+          TypeLine("Please enter a new word: ");
+          word = Console.ReadLine();
+          goto tryagain;
+        }
+        else
+        {
+          TypeLine("Sorry, I didn't catch that! Are you sure you would like to proceed with special characters? Y/N");
+          goto tryCharacterAgain;
+        }
+      }
+      return word;
+    }
+
+    public static string TrimSpecialCharacters(string word)
+    {
+      // Would refactor with a-z regex, not permitted
+      while (word.EndsWith("!") || word.EndsWith(".") || word.EndsWith("?") || word.EndsWith("-")  || word.EndsWith(",") || word.EndsWith("/") || word.EndsWith("%") || word.EndsWith('"') || word.EndsWith("'") || word.EndsWith(")") || word.EndsWith("(") || word.EndsWith(":") || word.EndsWith(";") || word.EndsWith("{") || word.EndsWith("}") || word.EndsWith("[") || word.EndsWith("]") || word.EndsWith("<") || word.EndsWith(">"))
+      {
+        word = word.Remove(word.Length - 1);
+      }
+      while (word.StartsWith("!") || word.StartsWith(".") || word.StartsWith("?") || word.StartsWith("-")  || word.StartsWith(",") || word.StartsWith("/") || word.StartsWith("%") || word.StartsWith('"') || word.StartsWith("'") || word.StartsWith(")") || word.StartsWith("(") || word.StartsWith(":") || word.StartsWith(";") || word.StartsWith("{") || word.StartsWith("}") || word.StartsWith("[") || word.StartsWith("]") || word.StartsWith("<") || word.StartsWith(">"))
+      {
+        word = word.Substring(1);
+      }
       return word;
     }
   }

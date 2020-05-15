@@ -17,14 +17,9 @@ namespace WordCounter.Models
       string[] sentenceArray = Sentence.Split(" ");
       for(int i = 0; i < sentenceArray.Length; i++)
       {
-        // Would refactor with a-z regex, not permitted
-        while (sentenceArray[i].EndsWith("!") || sentenceArray[i].EndsWith(".") || sentenceArray[i].EndsWith("?") || sentenceArray[i].EndsWith("-")  || sentenceArray[i].EndsWith(",") || sentenceArray[i].EndsWith("/") || sentenceArray[i].EndsWith("%") || sentenceArray[i].EndsWith('"') || sentenceArray[i].EndsWith("'") || sentenceArray[i].EndsWith(")") || sentenceArray[i].EndsWith("(") || sentenceArray[i].EndsWith(":") || sentenceArray[i].EndsWith(";") || sentenceArray[i].EndsWith("{") || sentenceArray[i].EndsWith("}") || sentenceArray[i].EndsWith("[") || sentenceArray[i].EndsWith("]") || sentenceArray[i].EndsWith("<") || sentenceArray[i].EndsWith(">"))
+        if(ContainSpecialCharacters(Word) == false)
         {
-          sentenceArray[i] = sentenceArray[i].Remove(sentenceArray[i].Length - 1);
-        }
-        while (sentenceArray[i].StartsWith("!") || sentenceArray[i].StartsWith(".") || sentenceArray[i].StartsWith("?") || sentenceArray[i].StartsWith("-")  || sentenceArray[i].StartsWith(",") || sentenceArray[i].StartsWith("/") || sentenceArray[i].StartsWith("%") || sentenceArray[i].StartsWith('"') || sentenceArray[i].StartsWith("'") || sentenceArray[i].StartsWith(")") || sentenceArray[i].StartsWith("(") || sentenceArray[i].StartsWith(":") || sentenceArray[i].StartsWith(";") || sentenceArray[i].StartsWith("{") || sentenceArray[i].StartsWith("}") || sentenceArray[i].StartsWith("[") || sentenceArray[i].StartsWith("]") || sentenceArray[i].StartsWith("<") || sentenceArray[i].StartsWith(">"))
-        {
-          sentenceArray[i] = sentenceArray[i].Substring(1);
+        sentenceArray[i] = TrimSpecialCharacters(sentenceArray[i]);
         }
         if (Word == sentenceArray[i] || Word == sentenceArray[i])
         {
@@ -32,6 +27,31 @@ namespace WordCounter.Models
         }
       }
       return count;
+    }
+
+    public bool ContainSpecialCharacters(string word)
+    {
+      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">"))
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+    public string TrimSpecialCharacters(string word)
+    {
+      // Would refactor with a-z regex, not permitted
+      while (word.EndsWith("!") || word.EndsWith(".") || word.EndsWith("?") || word.EndsWith("-")  || word.EndsWith(",") || word.EndsWith("/") || word.EndsWith("%") || word.EndsWith('"') || word.EndsWith("'") || word.EndsWith(")") || word.EndsWith("(") || word.EndsWith(":") || word.EndsWith(";") || word.EndsWith("{") || word.EndsWith("}") || word.EndsWith("[") || word.EndsWith("]") || word.EndsWith("<") || word.EndsWith(">"))
+      {
+        word = word.Remove(word.Length - 1);
+      }
+      while (word.StartsWith("!") || word.StartsWith(".") || word.StartsWith("?") || word.StartsWith("-")  || word.StartsWith(",") || word.StartsWith("/") || word.StartsWith("%") || word.StartsWith('"') || word.StartsWith("'") || word.StartsWith(")") || word.StartsWith("(") || word.StartsWith(":") || word.StartsWith(";") || word.StartsWith("{") || word.StartsWith("}") || word.StartsWith("[") || word.StartsWith("]") || word.StartsWith("<") || word.StartsWith(">"))
+      {
+        word = word.Substring(1);
+      }
+      return word;
     }
   }
 }
