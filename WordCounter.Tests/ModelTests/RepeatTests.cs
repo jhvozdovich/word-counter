@@ -77,16 +77,23 @@ namespace WordCounter.TestTools
       Assert.AreEqual(0, count);
     }
     [TestMethod]
-    public void CountRepeats_SentenceAdjacentPunctuationEnd_1()
+    public void CountRepeats_SentenceAdjacentFollowingFollowing_1()
     {
       Entry newEntry = new Entry("cat", "Zora is my favorite cat!");
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
     [TestMethod]
-    public void CountRepeats_SentenceAdjacentPunctuationBeginning_1()
+    public void CountRepeats_SentenceAdjacentPunctuationPreceding_1()
     {
       Entry newEntry = new Entry("cat", "What is a 'cat burglar?'");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
+    [TestMethod]
+    public void CountRepeats_SentencePrecedingAndFollowingPunctuation_1()
+    {
+      Entry newEntry = new Entry("cat", "What is a 'cat'");
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
