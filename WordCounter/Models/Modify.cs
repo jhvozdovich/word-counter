@@ -24,5 +24,19 @@ namespace WordCounter.Models
       string removedString = string.Join("", removed.ToArray());
       return removedString;
     }
+
+    public string TrimSpecialCharacters()
+    {
+      // Would refactor with a-z regex, not permitted
+      while (Word.EndsWith("!") || Word.EndsWith(".") || Word.EndsWith("?") || Word.EndsWith("-")  || Word.EndsWith(",") || Word.EndsWith("/") || Word.EndsWith("%") || Word.EndsWith('"') || Word.EndsWith("'") || Word.EndsWith(")") || Word.EndsWith("(") || Word.EndsWith(":") || Word.EndsWith(";") || Word.EndsWith("{") || Word.EndsWith("}") || Word.EndsWith("[") || Word.EndsWith("]") || Word.EndsWith("<") || Word.EndsWith(">") || Word.EndsWith("@") || Word.EndsWith("#") || Word.EndsWith("$") || Word.EndsWith("^") || Word.EndsWith("&") || Word.EndsWith("*"))
+      {
+        Word = Word.Remove(Word.Length - 1);
+      }
+      while (Word.StartsWith("!") || Word.StartsWith(".") || Word.StartsWith("?") || Word.StartsWith("-")  || Word.StartsWith(",") || Word.StartsWith("/") || Word.StartsWith("%") || Word.StartsWith('"') || Word.StartsWith("'") || Word.StartsWith(")") || Word.StartsWith("(") || Word.StartsWith(":") || Word.StartsWith(";") || Word.StartsWith("{") || Word.StartsWith("}") || Word.StartsWith("[") || Word.StartsWith("]") || Word.StartsWith("<") || Word.StartsWith(">") || Word.StartsWith("@") || Word.StartsWith("#") || Word.StartsWith("$") || Word.StartsWith("^") || Word.StartsWith("&") || Word.StartsWith("*"))
+      {
+        Word = Word.Substring(1);
+      }
+      return Word;
+    }
   }
 }
