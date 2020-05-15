@@ -31,7 +31,7 @@ namespace WordCounter.Models
 
     public bool ContainSpecialCharacters(string word)
     {
-      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">"))
+      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">") || word.Contains("@") || word.Contains("#") || word.Contains("$") || word.Contains("^") || word.Contains("&") || word.Contains("*"))
       {
         return true;
       }
@@ -43,11 +43,11 @@ namespace WordCounter.Models
     public string TrimSpecialCharacters(string word)
     {
       // Would refactor with a-z regex, not permitted
-      while (word.EndsWith("!") || word.EndsWith(".") || word.EndsWith("?") || word.EndsWith("-")  || word.EndsWith(",") || word.EndsWith("/") || word.EndsWith("%") || word.EndsWith('"') || word.EndsWith("'") || word.EndsWith(")") || word.EndsWith("(") || word.EndsWith(":") || word.EndsWith(";") || word.EndsWith("{") || word.EndsWith("}") || word.EndsWith("[") || word.EndsWith("]") || word.EndsWith("<") || word.EndsWith(">"))
+      while (word.EndsWith("!") || word.EndsWith(".") || word.EndsWith("?") || word.EndsWith("-")  || word.EndsWith(",") || word.EndsWith("/") || word.EndsWith("%") || word.EndsWith('"') || word.EndsWith("'") || word.EndsWith(")") || word.EndsWith("(") || word.EndsWith(":") || word.EndsWith(";") || word.EndsWith("{") || word.EndsWith("}") || word.EndsWith("[") || word.EndsWith("]") || word.EndsWith("<") || word.EndsWith(">") || word.EndsWith("@") || word.EndsWith("#") || word.EndsWith("$") || word.EndsWith("^") || word.EndsWith("&") || word.EndsWith("*"))
       {
         word = word.Remove(word.Length - 1);
       }
-      while (word.StartsWith("!") || word.StartsWith(".") || word.StartsWith("?") || word.StartsWith("-")  || word.StartsWith(",") || word.StartsWith("/") || word.StartsWith("%") || word.StartsWith('"') || word.StartsWith("'") || word.StartsWith(")") || word.StartsWith("(") || word.StartsWith(":") || word.StartsWith(";") || word.StartsWith("{") || word.StartsWith("}") || word.StartsWith("[") || word.StartsWith("]") || word.StartsWith("<") || word.StartsWith(">"))
+      while (word.StartsWith("!") || word.StartsWith(".") || word.StartsWith("?") || word.StartsWith("-")  || word.StartsWith(",") || word.StartsWith("/") || word.StartsWith("%") || word.StartsWith('"') || word.StartsWith("'") || word.StartsWith(")") || word.StartsWith("(") || word.StartsWith(":") || word.StartsWith(";") || word.StartsWith("{") || word.StartsWith("}") || word.StartsWith("[") || word.StartsWith("]") || word.StartsWith("<") || word.StartsWith(">") || word.StartsWith("@") || word.StartsWith("#") || word.StartsWith("$") || word.StartsWith("^") || word.StartsWith("&") || word.StartsWith("*"))
       {
         word = word.Substring(1);
       }
