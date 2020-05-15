@@ -41,5 +41,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
+    [TestMethod]
+    public void CountRepeats_SingleWordNonMatch_0()
+    {
+      Entry newEntry = new Entry("cat", "bat");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
   }
 }
