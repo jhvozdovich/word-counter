@@ -84,15 +84,14 @@ namespace Program
         goto tryagain;
       }
 
-      
-      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">") ||  word.Contains("@") || word.Contains("#") || word.Contains("$") || word.Contains("^") || word.Contains("&") || word.Contains("*"))
+      if(ContainSpecialCharacters(word))
       {
         TypeLine("Your word contains special characters. Are you sure you would like to proceed? Y/N");
         tryCharacterAgain:
         string continueCharacterQuestion = Console.ReadLine().ToLower();
         if (continueCharacterQuestion == "y" || continueCharacterQuestion == "yes")
         {
-          TypeLine("Would you like to remove the punctuation?");
+          TypeLine("Would you like to remove punctuation?");
           tryTrimAgain:
           string continueTrimQuestion = Console.ReadLine().ToLower();
           if (continueTrimQuestion == "y" || continueTrimQuestion == "yes")
@@ -120,6 +119,19 @@ namespace Program
       return word;
     }
 
+    public static bool ContainSpecialCharacters(string word)
+    {
+      char[] letterArray = word.ToCharArray();
+      bool specialCharacterStatus = false;
+      for (int i = 0; i < letterArray.Length; i++)
+      {
+        if(Char.IsLetter(letterArray[i]))
+        {
+          specialCharacterStatus = true;
+        }
+      }
+      return specialCharacterStatus;
+    }
     public static string TrimSpecialCharacters(string word)
     {
       // Would refactor with a-z regex, not permitted

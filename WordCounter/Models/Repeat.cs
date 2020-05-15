@@ -28,17 +28,18 @@ namespace WordCounter.Models
       }
       return count;
     }
-
     public bool ContainSpecialCharacters(string word)
     {
-      if(word.Contains("!") || word.Contains(".") || word.Contains("?") || word.Contains("-")  || word.Contains(",") || word.Contains("/") || word.Contains("%") || word.Contains('"') || word.Contains("'") || word.Contains(")") || word.Contains("(") || word.Contains(":") || word.Contains(";") || word.Contains("{") || word.Contains("}") || word.Contains("[") || word.Contains("]") || word.Contains("<") || word.Contains(">") || word.Contains("@") || word.Contains("#") || word.Contains("$") || word.Contains("^") || word.Contains("&") || word.Contains("*"))
+      char[] letterArray = word.ToCharArray();
+      bool specialCharacterStatus = false;
+      for (int i = 0; i < letterArray.Length; i++)
       {
-        return true;
+        if(Char.IsLetter(letterArray[i]))
+        {
+          specialCharacterStatus = true;
+        }
       }
-      else
-      {
-        return false;
-      }
+      return specialCharacterStatus;
     }
     public string TrimSpecialCharacters(string word)
     {
