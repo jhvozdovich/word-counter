@@ -68,7 +68,13 @@ namespace WordCounter.TestTools
       Entry newEntry = new Entry("cat", "This cat named Zora is my favorite cat in the world!");
       int count = newEntry.CountRepeats();
       Assert.AreEqual(2, count);
-
+    }
+    [TestMethod]
+    public void CountRepeats_WordExcludePartialMatch_0()
+    {
+      Entry newEntry = new Entry("cat", "cathedral");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
     }
   }
 }
