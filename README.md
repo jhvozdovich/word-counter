@@ -58,6 +58,10 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | **Gives option for user to remove all alphabetical characters from word input** | User Input:”Word: cat5s” | Output: “would you like to remove non alphabetical characters?” | Selected to account for possible user entry mistakes, but not automatically correct if they are intentional |
 | **Gives option for user to remove punctuation at the beginning and ending of a word** | User Input:”Word: cat!” | Output: "would you like to remove punctuation” | Selected to account for possible user entry punctuation mistakes, but not automatically correct if they are intentional |
 
+#### Resources
+
+[ASCII Cat](https://www.asciiart.eu/animals/cats)
+
 #### License
 
 This software is licensed under the MIT license.
