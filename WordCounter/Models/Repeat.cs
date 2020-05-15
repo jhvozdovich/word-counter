@@ -11,7 +11,12 @@ namespace WordCounter.Models
     }
     public int CountRepeats()
     {
-      return 0;
+      int count = 0;
+      if(Word == Sentence)
+      {
+        count += 1;
+      }
+      return count;
     }
   }
 }
