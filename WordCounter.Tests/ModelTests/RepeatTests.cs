@@ -34,5 +34,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(1, count);
     }
+    [TestMethod]
+    public void CountRepeats_SingleWordCapitalization_1()
+    {
+      Entry newEntry = new Entry("cat", "Cat");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(0, count);
+    }
   }
 }
