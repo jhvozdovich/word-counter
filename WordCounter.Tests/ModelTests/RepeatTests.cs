@@ -76,5 +76,12 @@ namespace WordCounter.TestTools
       int count = newEntry.CountRepeats();
       Assert.AreEqual(0, count);
     }
+    [TestMethod]
+    public void CountRepeats_SentenceAdjacentPunctuation_1()
+    {
+      Entry newEntry = new Entry("cat", "Zora is my favorite cat!");
+      int count = newEntry.CountRepeats();
+      Assert.AreEqual(1, count);
+    }
   }
 }
