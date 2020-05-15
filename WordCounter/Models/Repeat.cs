@@ -12,9 +12,13 @@ namespace WordCounter.Models
     public int CountRepeats()
     {
       int count = 0;
-      if(Word == Sentence)
+      string[] sentenceArray = Sentence.Split(" ");
+      foreach(string sentenceWord in sentenceArray)
       {
-        count += 1;
+        if(Word == sentenceWord)
+        {
+          count += 1;
+        }
       }
       return count;
     }
