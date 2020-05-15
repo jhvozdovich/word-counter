@@ -40,17 +40,20 @@ namespace Program
       TypeLine("Would you like to count another word? Y/N");
       tryagain:
       string continueQuestion = Console.ReadLine().ToLower();
+
       while (continueQuestion == "y" || continueQuestion == "yes")
       {
         StartWordCounter();
         TypeLine("Would you like to count another word? Y/N");
         continueQuestion = Console.ReadLine().ToLower();
       }
+
       while (continueQuestion != "n" && continueQuestion != "no")
       {
           TypeLine("Sorry, I didn't catch that! Would you like to count another word? Y/N");
           goto tryagain;
       }
+      
       TypeLine("Have a nice day!");
       EndCat();
     }
@@ -74,6 +77,7 @@ namespace Program
       Entry userEntry = new Entry(userWord, userSentence);
       int count = userEntry.CountRepeats();
       TypeLineSlow("Calculating...");
+
       if (count == 1)
       {
       TypeLine("There is " + count + " instance of the word " + userWord + " in your sentence.");
@@ -83,7 +87,6 @@ namespace Program
       TypeLine("There are " + count + " instances of the word " + userWord + " in your sentence.");
       }
     }
-
     static string ValidateWord(string word)
     {
       Modify modifyWord = new Modify(word);

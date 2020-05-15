@@ -10,7 +10,6 @@ namespace WordCounter.Models
     {
       Word = word.ToLower();
     }
-
     public string RemoveAllNonAlphaCharacters()
     {
       List<char> removed = new List<char> {};
@@ -24,7 +23,6 @@ namespace WordCounter.Models
       string removedString = string.Join("", removed.ToArray());
       return removedString;
     }
-
     public string TrimSpecialCharacters()
     {
       // Would refactor with a-z regex, not permitted
@@ -38,7 +36,6 @@ namespace WordCounter.Models
       }
       return Word;
     }
-
     public bool ContainSpecialCharacters()
     {
       char[] letterArray = Word.ToCharArray();
