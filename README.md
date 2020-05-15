@@ -38,10 +38,12 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 | :------------- | :------------- | :------------- | :------------- |
 | **Count single character inputs** | User Input:"Word: a, Sentence: a” | Output: “1” | Selected to ensure the code can match the most minimal input and correctly increase a counter |
 | **Count single character inputs with different capitalization** | User Input:"Word: a, Sentence: A” | Output: “1” | Selected to ensure the code can adapt to capitalization variations |
+| **Does not count single character inputs with different letters** | User Input:"Word: a, Sentence: b” | Output: “0” | Selected to ensure the code does not count non-matches |
 | **Count single word inputs** | User Input:”Word: cat, Sentence: cat” | Output: “1” | Selected to ensure the code is able to match a series of multiple characters |
 | **Count single word inputs with different capitalization** | User Input:”Word: cat, Sentence: Cat” | Output: “1” | Selected to ensure the code is able to match a series of multiple characters with capitalization variations |
+| **Does not count single word inputs with different words** | User Input:"Word: cat, Sentence: bat” | Output: “0” | Selected to ensure the code does not count non-matches with more complicated inputs |
 | **Count two word inputs** | User Input:”Word: cat, Sentence: cat cat” | Output: “2” | Selected to ensure the code is able to recognize spaces as word separators and continue to correctly increase the counter |
-| **Count two word inputs** | User Input:”Word: cat, Sentence: cat cat” | Output: “2” | Selected to ensure the code is able to recognize spaces as word separators and continue to correctly increase the counter |
+| **Count two word inputs, excluding non matches** | User Input:”Word: cat, Sentence: cat bat” | Output: “1” | Selected to ensure the code is able to recognize spaces as word separators and continue to correctly increase the counter, excluding non matches |
 | **Count multiple word inputs, excluding non-matches** | User Input:”Word: cat, Sentence: This cat named Zora is my favorite cat in the world!” | Output: “2” | Selected to ensure the code is able to ignore non-matching words |
 | **Does not count words that partially contain the word of interest** | User Input:”Word: cat, Sentence: cathedral” | Output: “0” | Selected to ensure the code is able to ignore non-matching words that contain the word of interest |
 | **Count words that are adjacent to punctuation** | User Input:”Word: cat, Sentence: Zora is my favorite cat!” | Output: “1” | Selected to ensure the code is able recognize punctuation as a word separator |
