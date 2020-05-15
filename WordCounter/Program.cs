@@ -24,6 +24,15 @@ namespace Program
       }
       Console.WriteLine();
     }
+     public static void TypeLineFast(string str)
+    {
+      for (int i = 0; i < str.Length; i++)
+      {
+        Console.Write(str[i]);
+        System.Threading.Thread.Sleep(10);
+      }
+      Console.WriteLine();
+    }
     static void Main()
     {
       TypeLine("Welcome to the word counter!");
@@ -43,6 +52,7 @@ namespace Program
           goto tryagain;
       }
       TypeLine("Have a nice day!");
+      EndCat();
     }
 
     static void StartWordCounter()
@@ -64,12 +74,19 @@ namespace Program
       Entry userEntry = new Entry(userWord, userSentence);
       int count = userEntry.CountRepeats();
       TypeLineSlow("Calculating...");
+      if (count == 1)
+      {
+      TypeLine("There is " + count + " instance of the word " + userWord + " in your sentence.");
+      }
+      else
+      {
       TypeLine("There are " + count + " instances of the word " + userWord + " in your sentence.");
+      }
     }
 
     static string ValidateWord(string word)
     {
-      Modify modifyWord = new Modify (word);
+      Modify modifyWord = new Modify(word);
       tryagain:
 
       while (word == "")
@@ -134,6 +151,17 @@ namespace Program
         }
       }
       return word;
+    }
+    static void EndCat()
+    {
+      TypeLineFast(@"
+          /\_____/\
+         /  o   o  \
+        ( ==  w  == )
+         )         (
+        (           )
+       ( (  )   (  ) )
+      (__(__)___(__)__)");
     }
   }
 }
