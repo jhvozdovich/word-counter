@@ -18,17 +18,15 @@ namespace WordCounter.Models
       for(int i = 0; i < sentenceArray.Length; i++)
       {
         // Would refactor with a-z regex, not permitted
-        if (sentenceArray[i].EndsWith("!") || sentenceArray[i].EndsWith(".") || sentenceArray[i].EndsWith("?") || sentenceArray[i].EndsWith("-")  || sentenceArray[i].EndsWith(",") || sentenceArray[i].EndsWith("/") || sentenceArray[i].EndsWith("%") || sentenceArray[i].EndsWith('"') || sentenceArray[i].EndsWith("'") || sentenceArray[i].EndsWith(")") || sentenceArray[i].EndsWith("(") || sentenceArray[i].EndsWith(":") || sentenceArray[i].EndsWith(";") || sentenceArray[i].EndsWith("{") || sentenceArray[i].EndsWith("}") || sentenceArray[i].EndsWith("[") || sentenceArray[i].EndsWith("]") || sentenceArray[i].EndsWith("<") || sentenceArray[i].EndsWith(">"))
+        while (sentenceArray[i].EndsWith("!") || sentenceArray[i].EndsWith(".") || sentenceArray[i].EndsWith("?") || sentenceArray[i].EndsWith("-")  || sentenceArray[i].EndsWith(",") || sentenceArray[i].EndsWith("/") || sentenceArray[i].EndsWith("%") || sentenceArray[i].EndsWith('"') || sentenceArray[i].EndsWith("'") || sentenceArray[i].EndsWith(")") || sentenceArray[i].EndsWith("(") || sentenceArray[i].EndsWith(":") || sentenceArray[i].EndsWith(";") || sentenceArray[i].EndsWith("{") || sentenceArray[i].EndsWith("}") || sentenceArray[i].EndsWith("[") || sentenceArray[i].EndsWith("]") || sentenceArray[i].EndsWith("<") || sentenceArray[i].EndsWith(">"))
         {
           sentenceArray[i] = sentenceArray[i].Remove(sentenceArray[i].Length - 1);
-          Console.WriteLine(sentenceArray[i]);
         }
-         if (sentenceArray[i].StartsWith("!") || sentenceArray[i].StartsWith(".") || sentenceArray[i].StartsWith("?") || sentenceArray[i].StartsWith("-")  || sentenceArray[i].StartsWith(",") || sentenceArray[i].StartsWith("/") || sentenceArray[i].StartsWith("%") || sentenceArray[i].StartsWith('"') || sentenceArray[i].StartsWith("'") || sentenceArray[i].StartsWith(")") || sentenceArray[i].StartsWith("(") || sentenceArray[i].StartsWith(":") || sentenceArray[i].StartsWith(";") || sentenceArray[i].StartsWith("{") || sentenceArray[i].StartsWith("}") || sentenceArray[i].StartsWith("[") || sentenceArray[i].StartsWith("]") || sentenceArray[i].StartsWith("<") || sentenceArray[i].StartsWith(">"))
+        while (sentenceArray[i].StartsWith("!") || sentenceArray[i].StartsWith(".") || sentenceArray[i].StartsWith("?") || sentenceArray[i].StartsWith("-")  || sentenceArray[i].StartsWith(",") || sentenceArray[i].StartsWith("/") || sentenceArray[i].StartsWith("%") || sentenceArray[i].StartsWith('"') || sentenceArray[i].StartsWith("'") || sentenceArray[i].StartsWith(")") || sentenceArray[i].StartsWith("(") || sentenceArray[i].StartsWith(":") || sentenceArray[i].StartsWith(";") || sentenceArray[i].StartsWith("{") || sentenceArray[i].StartsWith("}") || sentenceArray[i].StartsWith("[") || sentenceArray[i].StartsWith("]") || sentenceArray[i].StartsWith("<") || sentenceArray[i].StartsWith(">"))
         {
           sentenceArray[i] = sentenceArray[i].Substring(1);
-          Console.WriteLine(sentenceArray[i]);
         }
-        if(Word == sentenceArray[i] || Word == sentenceArray[i])
+        if (Word == sentenceArray[i] || Word == sentenceArray[i])
         {
           count += 1;
         }
